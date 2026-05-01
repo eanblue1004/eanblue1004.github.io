@@ -551,6 +551,10 @@
         .footer-links a { color: #cccccc; text-decoration: none; margin: 0 12px; }
         .footer-info p { margin: 2px 0; } 
         .footer-info strong { color: #ffffff; font-size: 16px; display: inline-block; margin-bottom: 5px; }
+		@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-200px); }
+}
     </style>
 </head>
 <body>
@@ -883,12 +887,33 @@
               </div>
             </div>
             <div class="arc2-news-card">
-              <div class="arc2-news-content">
-                <span class="arc2-feature-tag" style="margin-bottom: 16px; background: rgba(0,0,0,0.05); color: var(--sub); padding: 6px 12px; font-size: 13px;">집중취재</span>
-                <h4>"기존 누전차단기의 한계"</h4>
-                <p>우리가 흔히 쓰는 누전차단기(ELB)는 합선이나 누전만 막아줄 뿐, 정작 전기화재의 80%를 차지하는 '아크' 파형 자체를 인식하는 능력은 없습니다.</p>
-              </div>
-            </div>
+    <!-- 🔥 애니메이션 파형 시각화 영역 추가 -->
+    <div class="arc2-news-img" style="background: #0f172a; position: relative; overflow: hidden; height: 200px;">
+        <!-- 배경 그리드 (모눈종이 효과) -->
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <!-- 파형 설명 라벨 -->
+        <div style="position: absolute; top: 12px; left: 16px; color: #10b981; font-size: 13px; font-weight: bold; z-index: 2; text-shadow: 0 0 5px rgba(16, 185, 129, 0.5);">정상 파형</div>
+        <div style="position: absolute; top: 105px; left: 16px; color: #ef4444; font-size: 13px; font-weight: bold; z-index: 2; text-shadow: 0 0 5px rgba(239, 68, 68, 0.5);">아크 방전 파형 (스파크)</div>
+        
+        <!-- 🟢 정상 파형 SVG (부드러운 곡선) -->
+        <svg width="1200" height="100" style="position: absolute; top: 0; left: 0; animation: waveMove 2s linear infinite; filter: drop-shadow(0 0 3px #10b981);">
+            <path d="M0,50 Q25,10 50,50 T100,50 T150,50 T200,50 T250,50 T300,50 T350,50 T400,50 T450,50 T500,50 T550,50 T600,50 T650,50 T700,50 T750,50 T800,50 T850,50 T900,50 T950,50 T1000,50 T1050,50 T1100,50 T1150,50 T1200,50" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        
+        <!-- 🔴 아크 방전 파형 SVG (불규칙한 스파크) -->
+        <svg width="1200" height="100" style="position: absolute; top: 90px; left: 0; animation: waveMove 2s linear infinite; filter: drop-shadow(0 0 3px #ef4444);">
+            <path d="M0,50 Q25,10 50,50 L55,10 L60,90 L65,20 L75,80 L80,10 L90,90 L100,50 Q125,10 150,50 L155,10 L160,90 L165,20 L175,80 L180,10 L190,90 L200,50 Q225,10 250,50 L255,10 L260,90 L265,20 L275,80 L280,10 L290,90 L300,50 Q325,10 350,50 L355,10 L360,90 L365,20 L375,80 L380,10 L390,90 L400,50 Q425,10 450,50 L455,10 L460,90 L465,20 L475,80 L480,10 L490,90 L500,50 Q525,10 550,50 L555,10 L560,90 L565,20 L575,80 L580,10 L590,90 L600,50 Q625,10 650,50 L655,10 L660,90 L665,20 L675,80 L680,10 L690,90 L700,50 Q725,10 750,50 L755,10 L760,90 L765,20 L775,80 L780,10 L790,90 L800,50 Q825,10 850,50 L855,10 L860,90 L865,20 L875,80 L880,10 L890,90 L900,50 Q925,10 950,50 L955,10 L960,90 L965,20 L975,80 L980,10 L990,90 L1000,50 Q1025,10 1050,50 L1055,10 L1060,90 L1065,20 L1075,80 L1080,10 L1090,90 L1100,50 Q1125,10 1150,50 L1155,10 L1160,90 L1165,20 L1175,80 L1180,10 L1190,90 L1200,50" fill="none" stroke="#ef4444" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <!-- // 애니메이션 파형 시각화 영역 끝 -->
+
+    <div class="arc2-news-content">
+        <span class="arc2-feature-tag" style="margin-bottom: 16px; background: rgba(0,0,0,0.05); color: var(--sub); padding: 6px 12px; font-size: 13px;">집중취재</span>
+        <h4>"기존 누전차단기의 한계"</h4>
+        <p>우리가 흔히 쓰는 누전차단기(ELB)는 합선이나 누전만 막아줄 뿐, 정작 전기화재의 80%를 차지하는 '아크' 파형 자체를 인식하는 능력은 없습니다.</p>
+    </div>
+</div>
             <div class="arc2-news-card">
               <div class="arc2-news-img" style="background-image: url('Gemini_Generated_Image_iw2x42iw2x42iw2x.png');">
                 <span class="arc2-news-badge">이슈</span>
