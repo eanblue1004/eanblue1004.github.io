@@ -1,0 +1,85 @@
+<style>
+        /* 1. 기본 스타일 설정 */
+        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; margin: 0; line-height: 1.8; color: #333; scroll-behavior: smooth; }
+        
+        /* 2. 상단 메뉴바 */
+        header { background: #ffffff; border-bottom: 1px solid #e0e0e0; padding: 0 10%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; height: 80px; }
+        
+        .logo-container { height: 100%; display: flex; align-items: center; }
+        .logo-container a { display: flex; align-items: center; text-decoration: none; cursor: pointer; }
+        .logo-img { height: 50px; width: auto; }
+        
+        /* 햄버거 버튼 (데스크탑에서는 숨김) */
+        .menu-toggle { display: none; font-size: 28px; cursor: pointer; background: none; border: none; color: #222; padding: 10px; }
+
+        /* 3. 메인 메뉴 및 드롭다운 (데스크탑 기준) */
+        nav { display: flex; height: 100%; }
+        .menu-item { position: relative; height: 100%; display: flex; align-items: center; margin-left: 40px; }
+        
+        .menu-btn { text-decoration: none; color: #222; font-weight: 600; font-size: 17px; padding: 10px 0; cursor: pointer; transition: color 0.2s; display: flex; align-items: center; height: 100%; }
+        .menu-btn:hover { color: #0056b3; }
+
+        .submenu { display: none; position: absolute; top: 80px; left: 50%; transform: translateX(-50%); background: #ffffff; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 5px; overflow: hidden; min-width: 220px; text-align: left; border: 1px solid #eee; z-index: 200; }
+        .submenu a { display: block; padding: 12px 20px; color: #555; text-decoration: none; font-size: 14px; border-bottom: 1px solid #f8f9fa; white-space: nowrap; transition: background 0.2s; text-align: center; }
+        .submenu a:last-child { border-bottom: none; }
+        .submenu a:hover { background: #f0f7ff; color: #0056b3; font-weight: bold; }
+        
+        /* CSS Hover 방식으로 서브메뉴 열기 (데스크탑) */
+        @media (min-width: 851px) {
+            .menu-item:hover .submenu { display: block; animation: fadeInDownMenu 0.2s ease-out forwards; }
+        }
+        @keyframes fadeInDownMenu { from { opacity: 0; transform: translate(-50%, -10px); } to { opacity: 1; transform: translate(-50%, 0); } }
+		
+		/* 하단 정보 (Footer) */
+        footer { background: #1a1a1a; color: #999; padding: 10px 5%; font-size: 12px; text-align: center; }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a { color: #cccccc; text-decoration: none; margin: 0 12px; }
+        .footer-info p { margin: 2px 0; } 
+        .footer-info strong { color: #ffffff; font-size: 16px; display: inline-block; margin-bottom: 5px; }
+		@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-200px); }
+		}
+        /* =========================================
+           💡 반응형 웹 (태블릿 및 모바일) 스타일 
+           ========================================= */
+			@media (max-width: 850px) {
+            /* 헤더 여백 줄임 */
+            header { padding: 0 5%; }
+            .logo-img { height: 40px; }
+            
+            /* 햄버거 버튼 활성화 */
+            .menu-toggle { display: block; }
+            
+            /* 네비게이션 레이어 수정 (flex 대신 block을 사용하여 세로 늘어남 방지) */
+            nav { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: #ffffff; height: calc(100vh - 80px); overflow-y: auto; box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            nav.active { display: block; } 
+            
+            /* 모바일 메뉴 아이템 레이아웃 수정 */
+            .menu-item { display: block; width: 100%; height: auto; margin-left: 0; border-bottom: 1px solid #f0f0f0; box-sizing: border-box; }
+            .menu-btn { display: flex; width: 100%; height: auto; padding: 18px 5%; justify-content: space-between; align-items: center; box-sizing: border-box; }
+            .menu-btn::after { content: '▼'; font-size: 12px; color: #999; transition: transform 0.3s; }
+            
+            /* 서브메뉴 아코디언 스타일 최적화 */
+            .submenu { position: static; transform: none; width: 100%; box-shadow: none; border: none; border-radius: 0; background: #f9fbff; padding: 0; display: none; }
+            .submenu a { display: block; text-align: left; padding: 15px 10%; border-bottom: 1px solid #eee; box-sizing: border-box; }
+            
+            /* 모바일 메뉴 열림 상태 */
+            .menu-item.active .submenu { display: block; }
+            .menu-item.active .menu-btn { color: #0056b3; }
+            .menu-item.active .menu-btn::after { transform: rotate(180deg); color: #0056b3; }
+
+            /* 모바일 배너 텍스트 사이즈 조절 */
+            .hero h1 { font-size: 32px; margin-bottom: 10px; }
+            .hero p { font-size: 16px; }
+            
+            /* 푸터 최적화 */
+            footer { padding: 30px 20px; line-height: 1.6; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 26px; }
+            .hero p { font-size: 14px; }
+            .footer-info p { font-size: 12px; }
+        }
+</style>
