@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <title>이안블루 | 공식 홈페이지</title>
+	<link rel="stylesheet" href="style.css">
+    <style>
+        /* 나뭇잎 배경 적용 (일부 섹션) */
+        #greeting-section, #org-chart-section, #location-section { 
+            background: url('sayHelloBackground.jpg') no-repeat center center; 
+            background-size: cover; 
+            background-attachment: fixed; 
+        }
+
+        .section-title { text-align: center; font-size: 32px; color: #ffffff; margin-bottom: 50px; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: #ffffff; margin: 15px auto 0; box-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        
+        .section-title.dark-title { color: #222; text-shadow: none; }
+        .section-title.dark-title::after { background: #0056b3; box-shadow: none; }
+
+        .glass-wrap { background: rgba(255, 255, 255, 0.92); padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-width: 900px; margin: 0 auto; }
+        .greeting-slogan { font-size: 24px; color: #0056b3; font-weight: 700; text-align: center; margin-bottom: 30px; word-break: keep-all; }
+        
+        .org-chart-inner { display: flex; flex-direction: column; align-items: center; }
+        .org-ceo { background: #0056b3; color: white; padding: 15px 50px; border-radius: 30px; font-weight: bold; font-size: 20px; z-index: 2; position: relative;}
+        .org-line-vertical { width: 3px; height: 40px; background: #0056b3; }
+        .org-departments { display: flex; justify-content: center; gap: 30px; position: relative; padding-top: 30px; width: 100%; flex-wrap: wrap; }
+        .org-departments::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 3px; background: #0056b3; }
+        .org-dept { background: #fff; padding: 15px 25px; border-radius: 10px; border: 2px solid #0056b3; font-weight: bold; position: relative; }
+        .org-dept::before { content: ''; position: absolute; top: -32px; left: 50%; transform: translateX(-50%); width: 3px; height: 30px; background: #0056b3; }
+
+        .location-info { text-align: center; margin-bottom: 25px; }
+        .location-info h3 { color: #0056b3; font-size: 22px; margin-top: 0; margin-bottom: 5px; }
+        .location-info p { font-size: 16px; color: #555; }
+        .map-container { width: 100%; height: 400px; border-radius: 10px; overflow: hidden; margin-bottom: 25px; border: 1px solid #ddd; }
+        .btn-naver-map { display: inline-block; background: #03c75a; color: white; text-decoration: none; padding: 15px 40px; border-radius: 30px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 10px rgba(3, 199, 90, 0.3); transition: transform 0.2s, background 0.2s; }
+        .btn-naver-map:hover { background: #02b350; transform: translateY(-3px); }
+
+		#location-section {
+            padding-top: 30px !important; /* 기본 80px인 여백을 30px로 줄임 (완전 붙이려면 0px로 변경) */
+        }
+        
+		#location-section .section-title {
+            margin-top: 0; /* 제목 글자 위쪽에 생기는 기본 마진 제거 */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a id="home-btn" href="index.html">
+                <img src="logo.png" alt="이안블루 로고" class="logo-img">
+            </a>
+        </div>
+		
+   		<button class="menu-toggle" aria-label="메뉴 열기/닫기">☰</button>
+		
+        <nav>
+            <div class="menu-item">
+                <a href="javascript:void(0);" class="menu-btn">회사소개</a>
+                <div class="submenu">
+                    <a href="greeting.html">인사말</a>
+                    <a href="org_chart.html">조직도</a>
+                    <a href="location.html">오시는길</a>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <a href="javascript:void(0);" class="menu-btn">스마트전기제품</a>
+                <div class="submenu">
+                    <a href="#smart-wiring-section">IOT스마트배선기구</a>
+                    <a href="#arc-breaker-section">아크차단기</a>
+                    <a href="#surge-protector-section">써지보호기</a>
+                    <a href="#fire-outlet-section">화재감지콘센트</a>
+                    <a href="#standby-power-section">대기전력차단콘센트</a>
+                    <a href="#apu-section">APU(비상전원자동공급장치)</a>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <a href="javascript:void(0);" class="menu-btn">에너지효율화사업</a>
+                <div class="submenu">
+                    <a href="iot_lighting.html">IOT스마트조명</a>
+                    <a href="#solar-paint-section">태양열 차단 페인트</a>
+                    <a href="#solar-power-section">태양광발전시스템</a>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <a href="#" class="menu-btn">포토갤러리</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="location-section" class="content-section active" style="display: block; min-height: calc(100vh - 150px);">
+        <h2 class="section-title">오시는 길</h2>
+        <div class="glass-wrap" style="text-align: center;">
+            <div class="location-info">
+                <h3>(주)이안블루 본사</h3>
+                <p>서울특별시 강북구 솔샘로 316</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://maps.google.com/maps?q=서울특별시%20강북구%20솔샘로%20316&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+            <a href="https://naver.me/xPYIX9e5" target="_blank" class="btn-naver-map">📍 네이버 지도로 자세히 보기</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">개인정보 취급방침</a>
+            <a href="#">이용약관</a>
+            <a href="#">이메일무단수집거부</a>
+            <a href="#">사이트맵</a>
+        </div>
+        <div class="footer-info">
+            <p><strong>(주)이안블루</strong></p>
+            <p>서울특별시 강북구 솔샘로 316 | Tel 02-987-6114 | Fax 02-981-7114</p>
+            <p>COPYRIGHT © 2026 EANBLUE. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
