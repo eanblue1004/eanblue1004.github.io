@@ -7,8 +7,7 @@
     <title>이안블루 | 공식 홈페이지</title>
 	<link rel="stylesheet" href="style.css">
     <style>
-       
-        /* 태양열 차단 페인트 */
+       /* 태양열 차단 페인트 (PC 기본 스타일) */
         #solar-paint-section { background-color: #f7f9f8; }
         .ag-page-block { background: #ffffff; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); padding: 50px; margin-bottom: 40px; max-width: 1000px; margin-left: auto; margin-right: auto; }
         .ag-title { color: #1a7a40; font-size: 26px; border-bottom: 2px solid #1a7a40; padding-bottom: 12px; margin-top: 0; margin-bottom: 30px; display: inline-block; }
@@ -40,7 +39,29 @@
         .ag-cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .ag-cert-item { display: flex; align-items: center; gap: 10px; font-size: 15px; color: #444; }
         .ag-cert-item i { color: #1a7a40; font-style: normal; font-weight: bold; }
-		
+
+        /* =========================================
+           💡 태양열 페인트 모바일 반응형 최적화
+           ========================================= */
+        @media (max-width: 850px) {
+            /* 메인 박스 여백 축소 */
+            .ag-page-block { padding: 30px 20px; margin-bottom: 25px; }
+            
+            /* 가로 배치된 텍스트와 이미지를 세로(위아래)로 변경 */
+            .ag-split-layout { flex-direction: column; gap: 25px; }
+            
+            /* 그리드 레이아웃(효과, 제품, 인증마크)을 무조건 1줄(1열)로 꽉 차게 변경 */
+            .ag-grid-4, 
+            .ag-product-grid, 
+            .ag-cert-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            /* 모바일에 맞게 글자 크기 및 내부 여백 미세 조정 */
+            .ag-title { font-size: 22px; margin-bottom: 20px; }
+            .ag-highlight { font-size: 15px; padding: 15px; }
+            .ag-list li { font-size: 15px; }
+        }
     </style>
 </head>
 <body>
