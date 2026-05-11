@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <title>이안블루 | 공식 홈페이지</title>
+	<link rel="stylesheet" href="style.css">
+    <style>
+       
+        /* 태양열 차단 페인트 */
+        #solar-paint-section { background-color: #f7f9f8; }
+        .ag-page-block { background: #ffffff; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); padding: 50px; margin-bottom: 40px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+        .ag-title { color: #1a7a40; font-size: 26px; border-bottom: 2px solid #1a7a40; padding-bottom: 12px; margin-top: 0; margin-bottom: 30px; display: inline-block; }
+        .ag-split-layout { display: flex; gap: 40px; align-items: center; }
+        .ag-split-text { flex: 1; }
+        .ag-split-img { flex: 1; text-align: center; }
+        .ag-split-img img { max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .ag-highlight { background-color: #f0f7f2; border-left: 5px solid #1a7a40; padding: 20px; border-radius: 0 8px 8px 0; margin-bottom: 25px; font-size: 17px; line-height: 1.6; }
+        .ag-list { list-style: none; padding: 0; margin: 0; }
+        .ag-list li { margin-bottom: 15px; font-size: 16px; padding-left: 25px; position: relative; line-height: 1.6; }
+        .ag-list li::before { content: '✓'; position: absolute; left: 0; color: #1a7a40; font-weight: bold; }
+        .ag-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .ag-effect-card { background: #fff; border: 1px solid #e8f0eb; padding: 25px; border-radius: 15px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+        .ag-effect-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(26,122,64,0.1); border-color: #1a7a40; }
+        .ag-icon { font-size: 40px; margin-bottom: 15px; display: block; }
+        .ag-effect-card h4 { color: #1a7a40; font-size: 19px; margin-top: 0; margin-bottom: 10px; }
+        .ag-effect-card p { font-size: 15px; color: #555; margin: 0; word-break: keep-all; }
+
+        .ag-product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .ag-product-card { background: #1a7a40; color: white; padding: 25px; border-radius: 15px; position: relative; overflow: hidden; }
+        .ag-product-card::after { content: ''; position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+        .ag-product-card h4 { font-size: 24px; margin: 0 0 5px 0; color: #fff; }
+        .ag-product-card .subtitle { font-size: 14px; opacity: 0.8; margin-bottom: 15px; display: block; }
+        .ag-product-card p { font-size: 15px; margin: 0; line-height: 1.5; }
+        .ag-product-card .tag { display: inline-block; background: #fff; color: #1a7a40; font-size: 12px; font-weight: bold; padding: 4px 10px; border-radius: 20px; margin-top: 15px; }
+
+        .ag-cert-box { background: #f9f9f9; padding: 25px; border-radius: 10px; border: 1px dashed #ccc; }
+        .ag-cert-box h4 { color: #333; margin-top: 0; margin-bottom: 15px; font-size: 18px; }
+        .ag-cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .ag-cert-item { display: flex; align-items: center; gap: 10px; font-size: 15px; color: #444; }
+        .ag-cert-item i { color: #1a7a40; font-style: normal; font-weight: bold; }
+		
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section id="solar-paint-section" class="content-section active" style="display: block; min-height: calc(100vh - 150px);">
+        <h2 class="section-title dark-title">친환경 태양열 차단 페인트</h2>
+        
+        <div class="ag-page-block">
+            <h2 class="ag-title">제품 개요</h2>
+            <div class="ag-split-layout">
+                <div class="ag-split-text">
+                    <h3 style="color: #2b4a36; margin-top: 0;">태양열 차단 페인트란?</h3>
+                    <div class="ag-highlight">
+                        태양광의 열원을 근본적으로 반사하여 건물 내부로의 열 침투를 차단하는 <strong>고기능성 친환경 차열페인트</strong>입니다.<br>단 한 번의 얇은 도장으로 에너지 절감과 쾌적한 환경을 동시에 실현합니다.
+                    </div>
+                    <h3 style="color: #2b4a36; margin-top: 30px;">핵심 기술: 특수 열처리 실리카</h3>
+                    <ul class="ag-list">
+                        <li><strong>강력한 산란 및 반사:</strong> 적외선 사이즈와 동일한 미세 실리카 입자(200~1,200nm)가 가시광선과 적외선을 거울처럼 반사시켜 열 흡수를 원천 차단합니다.</li>
+                        <li><strong>차열 vs 단열의 차이:</strong> 열이 천천히 전달되게 막는 '일반 단열재'와 달리, <strong>태양광 자체를 튕겨내어 열 발생을 막으므로</strong> 효율성이 월등히 높습니다.</li>
+                    </ul>
+                </div>
+                <div class="ag-split-img">
+                    <img src="image_57bceb.jpg" alt="차열 및 온도하강 원리">
+                    <p style="font-size: 13px; color: #888; margin-top: 10px;">▲ 열차단 페인트 도포 전후 열화상 비교 및 원리</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ag-page-block">
+            <h2 class="ag-title">놀라운 도입 효과</h2>
+            <div class="ag-grid-4">
+                <div class="ag-effect-card"><span class="ag-icon">🌡️</span><h4>극적인 온도 저감</h4><p>태양빛을 반사해 건물 표면 온도를 <strong>30~40℃</strong> 낮추고, 푹푹 찌는 실내 온도를 <strong>2~5℃</strong> 가량 즉시 하강시킵니다.</p></div>
+                <div class="ag-effect-card"><span class="ag-icon">💸</span><h4>유지 비용 절감</h4><p>실내 온도가 낮아져 하절기 냉방 에너지 사용량을 <strong>23% 이상</strong> 절약하며, 잦은 재도장 수고를 덜어줍니다.</p></div>
+                <div class="ag-effect-card"><span class="ag-icon">🛡️</span><h4>건축물 수명 연장</h4><p>열로 인한 건물의 팽창 및 수축을 방지하고 뛰어난 내후성으로 도막의 노후를 막아 <strong>건물의 내구성</strong>을 대폭 향상시킵니다.</p></div>
+                <div class="ag-effect-card"><span class="ag-icon">🌿</span><h4>친환경 안심 제품</h4><p>유해 물질(VOC)이 거의 없는 <strong>수용성 제품</strong>입니다. 도시 열섬 현상을 완화하고 온실가스 저감에 크게 기여합니다.</p></div>
+            </div>
+        </div>
+
+        <div class="ag-page-block">
+            <h2 class="ag-title">다양한 색상에서도 높은 열차단 성능</h2>
+            <div style="text-align: center;">
+                <p style="font-size: 18px; color: #555; margin-bottom: 25px; word-break: keep-all;">
+                    밝은 색상뿐만 아니라 <strong>다양하고 짙은 색상(주조색, 보조색, 강조색)</strong>에서도 우수한 태양열 반사율을 유지하여, 건축물의 아름다운 디자인과 에너지 절감을 동시에 만족시킵니다.
+                </p>
+                <img src="image_582aa1.jpg" alt="열차단 페인트 지원 색상표" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+
+        <div class="ag-page-block">
+            <h2 class="ag-title">용도별 맞춤 솔루션 및 인증</h2>
+            <div class="ag-product-grid">
+                <div class="ag-product-card"><span class="subtitle">건물 외벽, 지붕, 외부 노출 시설</span><h4>ES <span style="font-size: 16px; font-weight: normal;">(외벽용)</span></h4><p>일사반사율 93%의 프리미엄 제품으로 건물의 화려한 디자인까지 그대로 구현 가능합니다.</p><span class="tag">#프리미엄 반사</span></div>
+                <div class="ag-product-card" style="background: #2b4a36;"><span class="subtitle">건물 옥상 방수 및 열차단</span><h4>ER <span style="font-size: 16px; font-weight: normal;">(방수용)</span></h4><p>KS 도막방수재 인증 획득! 단 1mm의 얇은 도막으로도 강력한 방수와 차열을 동시에 해결합니다.</p><span class="tag">#KS 방수인증</span></div>
+                <div class="ag-product-card" style="background: #3c6e4e;"><span class="subtitle">고내구성이 필요한 옥상</span><h4>ER-X <span style="font-size: 16px; font-weight: normal;">(강화방수)</span></h4><p>특허받은 '허니트러스폼' 보강재를 사용하여 압력 분산 기능과 튼튼한 인장 성능을 자랑합니다.</p><span class="tag">#허니트러스폼 특허</span></div>
+                <div class="ag-product-card" style="background: #508c66;"><span class="subtitle">자전거 도로, 보도, 주차장</span><h4>EL <span style="font-size: 16px; font-weight: normal;">(바닥용)</span></h4><p>단체표준 바닥재 인증 획득! 뜨거운 도로 온도를 10℃ 이상 낮추고 미끄럼 방지 성능이 우수합니다.</p><span class="tag">#미끄럼방지 바닥재</span></div>
+            </div>
+            <div class="ag-cert-box">
+                <h4>🏆 믿을 수 있는 국내외 인증 현황</h4>
+                <div class="ag-cert-grid">
+                    <div class="ag-cert-item"><i>✔</i> 환경표지, 녹색기술/제품, 재난안전 신기술, 조달청 혁신제품 인증</div>
+                    <div class="ag-cert-item"><i>✔</i> KS 인증 및 차열도료/방수재/도막형바닥재 단체표준 만족</div>
+                    <div class="ag-cert-item"><i>✔</i> 세계 최고 권위 미국 CRRC (Cool Roof Rating Council) 인증 획득</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="iot-cta-area" style="margin-top: 50px;">
+            <h3>건물의 수명을 늘리고 에너지를 절감하는 가장 똑똑한 선택</h3>
+            <p>친환경 태양열 차단 페인트 도입에 대한 맞춤 컨설팅을 받아보세요.</p>
+            <div class="cta-btn-group">
+                <a href="javascript:void(0);" class="cta-btn primary btn-open-inquiry" data-target="inquiry-form-paint">태양열 차단 페인트 도입 문의하기</a>
+            </div>
+        </div>
+
+        <div id="inquiry-form-paint" class="inquiry-form-wrap" style="max-width: 1000px; margin-left: auto; margin-right: auto;">
+            <h3>태양열 차단 페인트 도입 문의</h3>
+            <form action="https://formsubmit.co/eanblue365@naver.com" method="POST">
+                <input type="hidden" name="_subject" value="[이안블루 홈페이지] 태양열 차단 페인트 도입 문의가 도착했습니다!">
+                <input type="hidden" name="_template" value="table">
+                
+                <div class="inquiry-section-title">1. 기본정보</div>
+                <div class="inquiry-grid">
+                    <div class="inquiry-group"><label>회사명</label><input type="text" name="회사명" placeholder="회사명을 입력해주세요" required></div>
+                    <div class="inquiry-group"><label>주소</label><input type="text" name="주소" placeholder="주소를 입력해주세요"></div>
+                    <div class="inquiry-group"><label>담당자</label><input type="text" name="담당자" placeholder="담당자 성함을 입력해주세요" required></div>
+                    <div class="inquiry-group"><label>전화번호</label><input type="tel" name="전화번호" placeholder="연락처를 입력해주세요" required></div>
+                    <div class="inquiry-group full-width"><label>이메일</label><input type="email" name="이메일" placeholder="이메일 주소를 입력해주세요" required></div>
+                </div>
+
+                <div class="inquiry-section-title">2. 문의내용</div>
+                <div class="inquiry-group full-width">
+                    <textarea name="문의내용" placeholder="문의하실 내용을 자유롭게 입력해주세요." required></textarea>
+                    <div class="inquiry-helper-text">(시공을 원하시는 건물의 종류, 면적, 현재 상태 등 상세한 정보를 주시면 보다 자세한 상담이 가능합니다.)</div>
+                </div>
+
+                <button type="submit" class="inquiry-submit-btn">문의하기 (메일 전송)</button>
+                <div class="inquiry-consent">(양식을 제출하면 개인정보 제공 및 제3자 정보 제공 활용에 동의하는 것으로 간주합니다.)</div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">개인정보 취급방침</a>
+            <a href="#">이용약관</a>
+            <a href="#">이메일무단수집거부</a>
+            <a href="#">사이트맵</a>
+        </div>
+        <div class="footer-info">
+            <p><strong>(주)이안블루</strong></p>
+            <p>서울특별시 강북구 솔샘로 316 | Tel 02-987-6114 | Fax 02-981-7114</p>
+            <p>COPYRIGHT © 2026 EANBLUE. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+	<script src="header.js"></script>
+</body>
+</html>
