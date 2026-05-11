@@ -52,4 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 	});
+	
+	 // ==========================================
+        // 💡 모든 "도입 문의하기" 버튼을 작동시키는 스크립트
+        // ==========================================
+        const inquiryButtons = document.querySelectorAll('.btn-open-inquiry');
+        inquiryButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // 각 버튼에 숨겨진 data-target(폼 ID) 값을 가져옵니다.
+                const targetId = this.getAttribute('data-target');
+                if(targetId) {
+                    const formContainer = document.getElementById(targetId);
+                    if (formContainer) {
+                        // 해당 폼을 보이게 하고, 부드럽게 스크롤하여 이동합니다.
+                        formContainer.style.display = 'block';
+                        formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
 });
