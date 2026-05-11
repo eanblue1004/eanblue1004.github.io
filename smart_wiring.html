@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <title>이안블루 | 공식 홈페이지</title>
+	<link rel="stylesheet" href="style.css">
+    <style>
+        
+		/* ==============================================
+		   💡 [신규] IOT 스마트 배선기구 (제일일렉트릭) 전용 스타일
+		   ============================================== */
+		#smart-wiring-section {
+			--sw-bg: #F5F2ED;
+			--sw-bg2: #EDEAE3;
+			--sw-ink: #1A1916;
+			--sw-ink2: #4A4845;
+			--sw-ink3: #8A8783;
+			--sw-accent: #1B4FBF;
+			--sw-accent-light: #E8EEFA;
+			--sw-accent2: #0E7C5A;
+			--sw-accent2-light: #E3F5EE;
+			--sw-warm: #C04A1E;
+			--sw-warm-light: #FAE9E2;
+			--sw-purple: #5038B0;
+			--sw-purple-light: #EDEBFA;
+			--sw-border: rgba(26,25,22,0.12);
+			--sw-border-strong: rgba(26,25,22,0.22);
+			--sw-radius: 14px;
+			
+			background-color: var(--sw-bg);
+			padding: 0 !important; /* 기존 여백 무시하고 풀스크린 사용 */
+			color: var(--sw-ink);
+		}
+
+		.sw-hero { position: relative; background: var(--sw-ink); color: #fff; padding: 100px 48px 80px; overflow: hidden; }
+		.sw-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(27,79,191,0.35) 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 20% 80%, rgba(14,124,90,0.2) 0%, transparent 55%); }
+		.sw-hero-inner { position: relative; max-width: 900px; margin: 0 auto; text-align: left; }
+		.sw-hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+		.sw-hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: rgba(255,255,255,0.4); }
+		.sw-hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(42px, 7vw, 78px); line-height: 1.05; letter-spacing: -0.02em; color: #fff; margin-top: 0; margin-bottom: 10px; }
+		.sw-hero-title em { font-style: italic; color: #7FA8F8; }
+		.sw-hero-subtitle { font-size: 17px; color: rgba(255,255,255,0.6); font-weight: 300; margin-top: 20px; max-width: 520px; line-height: 1.65; word-break: keep-all;}
+		.sw-hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px; }
+		.sw-chip { font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.06); }
+
+		.sw-page { max-width: 1000px; margin: 0 auto; padding: 0 32px; text-align: left; }
+		.sw-section { padding: 72px 0; }
+		.sw-section + .sw-section { border-top: 1px solid var(--sw-border); }
+		.sw-section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; }
+		.sw-section-num { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--sw-ink3); }
+		.sw-section-title { font-family: 'DM Serif Display', serif; font-size: 34px; letter-spacing: -0.02em; color: var(--sw-ink); line-height: 1.2; margin: 0;}
+		.sw-section-desc { font-size: 16px; color: var(--sw-ink2); line-height: 1.7; max-width: 640px; margin-top: 10px; margin-left: calc(11px + 16px + 2ch); word-break: keep-all;}
+
+		.sw-product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 32px;}
+		.sw-product-card { background: #fff; border: 1px solid var(--sw-border); border-radius: var(--sw-radius); padding: 24px; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: default; }
+		.sw-product-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); border-color: var(--sw-border-strong); }
+		.sw-product-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px; }
+		.sw-product-name { font-size: 16px; font-weight: 700; color: var(--sw-ink); margin: 0 0 6px 0; }
+		.sw-product-desc { font-size: 14px; color: var(--sw-ink2); line-height: 1.6; margin: 0; word-break: keep-all; }
+		.sw-product-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 14px; }
+		.sw-ptag { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 4px; background: var(--sw-bg2); color: var(--sw-ink2); }
+
+		.sw-benefit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 32px; }
+		.sw-benefit-card { border-radius: var(--sw-radius); padding: 26px 24px; position: relative; overflow: hidden; transition: transform 0.2s; }
+		.sw-benefit-card:hover { transform: translateY(-2px); }
+		.sw-benefit-card.blue   { background: var(--sw-accent-light); }
+		.sw-benefit-card.green  { background: var(--sw-accent2-light); }
+		.sw-benefit-card.warm   { background: var(--sw-warm-light); }
+		.sw-benefit-card.purple { background: var(--sw-purple-light); }
+		.sw-benefit-icon { font-size: 24px; margin-bottom: 14px; }
+		.sw-benefit-title { font-size: 16px; font-weight: 700; margin: 0 0 10px 0; }
+		.sw-benefit-card.blue   .sw-benefit-title { color: var(--sw-accent); }
+		.sw-benefit-card.green  .sw-benefit-title { color: var(--sw-accent2); }
+		.sw-benefit-card.warm   .sw-benefit-title { color: var(--sw-warm); }
+		.sw-benefit-card.purple .sw-benefit-title { color: var(--sw-purple); }
+		.sw-benefit-list { list-style: none; display: flex; flex-direction: column; gap: 7px; padding: 0; margin: 0;}
+		.sw-benefit-list li { font-size: 14px; color: var(--sw-ink2); line-height: 1.55; padding-left: 14px; position: relative; word-break: keep-all;}
+		.sw-benefit-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; }
+		.sw-benefit-card.blue   .sw-benefit-list li::before { background: var(--sw-accent); }
+		.sw-benefit-card.green  .sw-benefit-list li::before { background: var(--sw-accent2); }
+		.sw-benefit-card.warm   .sw-benefit-list li::before { background: var(--sw-warm); }
+		.sw-benefit-card.purple .sw-benefit-list li::before { background: var(--sw-purple); }
+
+		.sw-jeil-banner { background: var(--sw-ink); color: #fff; border-radius: 20px; padding: 48px 48px 36px; margin-bottom: 28px; position: relative; overflow: hidden; margin-top: 32px;}
+		.sw-jeil-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 90% 50%, rgba(27,79,191,0.3) 0%, transparent 55%), radial-gradient(ellipse 40% 60% at 10% 80%, rgba(14,124,90,0.18) 0%, transparent 50%); }
+		.sw-jeil-banner-inner { position: relative; }
+		.sw-jeil-badge { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(27,79,191,0.35); color: #91AEFF; padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; border: 1px solid rgba(145,174,255,0.3); }
+		.sw-jeil-title { font-family: 'DM Serif Display', serif; font-size: 38px; letter-spacing: -0.02em; line-height: 1.15; color: #fff; max-width: 580px; margin: 0 0 14px 0; }
+		.sw-jeil-desc { font-size: 16px; color: rgba(255,255,255,0.6); max-width: 500px; line-height: 1.65; font-weight: 300; margin: 0; word-break: keep-all;}
+
+		.sw-stats-bar { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1px; background: var(--sw-border); border: 1px solid var(--sw-border); border-radius: var(--sw-radius); overflow: hidden; margin-bottom: 28px; }
+		.sw-stat-item { background: #fff; padding: 22px 20px; text-align: center; }
+		.sw-stat-num { font-family: 'DM Serif Display', serif; font-size: 30px; letter-spacing: -0.02em; color: var(--sw-accent); line-height: 1; margin: 0 0 4px 0; }
+		.sw-stat-label { font-size: 13px; color: var(--sw-ink3); font-weight: 500; margin: 0;}
+
+		.sw-jeil-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-bottom: 80px;}
+		.sw-jeil-card { background: #fff; border: 1px solid var(--sw-border); border-radius: var(--sw-radius); padding: 26px 24px; transition: transform 0.2s, box-shadow 0.2s; position: relative; }
+		.sw-jeil-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+		.sw-jeil-card.featured { border-color: var(--sw-accent); border-width: 1.5px; }
+		.sw-jeil-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--sw-accent-light); display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 16px; }
+		.sw-jeil-card-title { font-size: 16px; font-weight: 700; color: var(--sw-ink); margin: 0 0 7px 0; }
+		.sw-jeil-card-desc { font-size: 14px; color: var(--sw-ink2); line-height: 1.65; margin: 0; word-break: keep-all;}
+		.sw-jeil-tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--sw-accent); background: var(--sw-accent-light); padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; }
+
+		.sw-fade-in { opacity: 0; transform: translateY(18px); animation: swFadeUp 0.55s ease forwards; }
+		@keyframes swFadeUp { to { opacity: 1; transform: translateY(0); } }
+		.sw-delay-1 { animation-delay: 0.1s; }
+		.sw-delay-2 { animation-delay: 0.2s; }
+		.sw-delay-3 { animation-delay: 0.3s; }
+
+		@media (max-width: 640px) {
+			.sw-hero { padding: 72px 24px 64px; }
+			.sw-page { padding: 0 20px; }
+			.sw-section { padding: 52px 0; }
+			.sw-jeil-banner { padding: 32px 24px 28px; }
+			.sw-jeil-title { font-size: 28px; }
+			.sw-section-title { font-size: 26px; }
+			.sw-section-desc { margin-left: 0; margin-top: 14px; }
+		}
+
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section id="smart-wiring-section" class="content-section active" style="display: block; min-height: calc(100vh - 150px);">
+        <div class="sw-hero">
+          <div class="sw-hero-inner">
+            <p class="sw-hero-eyebrow sw-fade-in">Smart Home · IoT Wiring Devices</p>
+            <h1 class="sw-hero-title sw-fade-in sw-delay-1">IoT<br><em>스마트 배선기구</em><br>완벽 가이드</h1>
+            <p class="sw-hero-subtitle sw-fade-in sw-delay-2">
+              집 안의 스위치와 콘센트가 인터넷에 연결되면 어떤 변화가 생길까요?
+              IoT 배선기구의 종류부터 도입 효과, 그리고 제일일렉트릭만의 장점까지 한눈에 확인하세요.
+            </p>
+            <div class="sw-hero-chips sw-fade-in sw-delay-3">
+              <span class="sw-chip">원격 제어</span>
+              <span class="sw-chip">에너지 절감</span>
+              <span class="sw-chip">스마트홈 연동</span>
+              <span class="sw-chip">AI 서비스</span>
+              <span class="sw-chip">안전 관리</span>
+            </div>
+          </div>
+        </div>
+
+        <main class="sw-page">
+          <section class="sw-section">
+            <div class="sw-section-header">
+              <span class="sw-section-num">01</span>
+              <h2 class="sw-section-title">IoT 배선기구<br>주요 제품 종류</h2>
+            </div>
+            <p class="sw-section-desc">스마트 스위치·콘센트부터 통합 패널과 센서류까지, IoT 배선기구는 다양한 형태로 집 안 모든 전기 포인트를 커버합니다.</p>
+
+            <div class="sw-product-grid">
+              <div class="sw-product-card sw-animate-target">
+                <div class="sw-product-icon" style="background:#E8EEFA;">💡</div>
+                <p class="sw-product-name">스마트 조명 스위치</p>
+                <p class="sw-product-desc">1구~6구 구성으로 제공되며, 원격 ON/OFF, 타이머·스케줄 설정, 일괄소등 기능을 지원합니다. 앱 또는 음성으로 제어 가능합니다.</p>
+                <div class="sw-product-tags">
+                  <span class="sw-ptag">원격 제어</span>
+                  <span class="sw-ptag">타이머</span>
+                  <span class="sw-ptag">일괄소등</span>
+                </div>
+              </div>
+
+              <div class="sw-product-card sw-animate-target">
+                <div class="sw-product-icon" style="background:#E3F5EE;">🔌</div>
+                <p class="sw-product-name">스마트 콘센트</p>
+                <p class="sw-product-desc">대기전력 자동 차단, 소비 전력 실시간 모니터링, 앱 원격 제어 기능을 탑재한 매립형 콘센트입니다.</p>
+                <div class="sw-product-tags">
+                  <span class="sw-ptag">대기전력 차단</span>
+                  <span class="sw-ptag">전력 측정</span>
+                  <span class="sw-ptag">매립형</span>
+                </div>
+              </div>
+
+              <div class="sw-product-card sw-animate-target">
+                <div class="sw-product-icon" style="background:#FFF0EA;">🌡️</div>
+                <p class="sw-product-name">각방 통합스위치</p>
+                <p class="sw-product-desc">조명·난방·환기를 하나의 패널에서 통합 제어합니다. 각 방의 상황에 맞는 맞춤 환경을 손쉽게 구성할 수 있습니다.</p>
+                <div class="sw-product-tags">
+                  <span class="sw-ptag">통합 제어</span>
+                  <span class="sw-ptag">난방 연동</span>
+                  <span class="sw-ptag">환기</span>
+                </div>
+              </div>
+
+              <div class="sw-product-card sw-animate-target">
+                <div class="sw-product-icon" style="background:#EDEBFA;">📊</div>
+                <p class="sw-product-name">침실 에너지 미터</p>
+                <p class="sw-product-desc">세대 및 방별 실시간 전력 사용량을 측정하고 이력을 조회할 수 있습니다. 소비 패턴 분석으로 절전에 활용됩니다.</p>
+                <div class="sw-product-tags">
+                  <span class="sw-ptag">전력 모니터링</span>
+                  <span class="sw-ptag">이력 조회</span>
+                </div>
+              </div>
+
+              <div class="sw-product-card sw-animate-target">
+                <div class="sw-product-icon" style="background:#F0FAE5;">🏠</div>
+                <p class="sw-product-name">거실 통합스위치 / 생활정보기</p>
+                <p class="sw-product-desc">거실 내 다기능 생활정보 표시와 함께 전등·가전을 통합 제어합니다. 날씨·시간 등 생활 정보를 디스플레이에서 바로 확인합니다.</p>
+                <div class="sw-product-tags">
+                  <span class="sw-ptag">생활정보 표시</span>
+                  <span class="sw-ptag">통합 제어</span>
+                </div>
+              </div>
+
+              <div class="sw-product-card sw-animate-target">
+                <div class="sw-product-icon" style="background:#FAE9E2;">📡</div>
+                <p class="sw-product-name">IoT 허브 &amp; 센서류</p>
+                <p class="sw-product-desc">동작 감지·문열림·화재·온습도 센서와 데이터 허브가 결합되어 완성되는 스마트홈 안전 네트워크입니다.</p>
+                <div class="sw-product-tags">
+                  <span class="sw-ptag">동작 감지</span>
+                  <span class="sw-ptag">화재 감지</span>
+                  <span class="sw-ptag">온습도</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="sw-section">
+            <div class="sw-section-header">
+              <span class="sw-section-num">02</span>
+              <h2 class="sw-section-title">IoT 배선기구를<br>쓰면 좋은 이유</h2>
+            </div>
+            <p class="sw-section-desc">단순한 스위치 교체가 아닙니다. 생활 방식 전체를 바꾸는 네 가지 핵심 가치를 확인하세요.</p>
+
+            <div class="sw-benefit-grid">
+              <div class="sw-benefit-card blue sw-animate-target">
+                <div class="sw-benefit-icon">📱</div>
+                <p class="sw-benefit-title">편의성 향상</p>
+                <ul class="sw-benefit-list">
+                  <li>스마트폰 앱으로 언제 어디서나 원격 제어</li>
+                  <li>타이머·스케줄 설정으로 반복 작업 자동화</li>
+                  <li>누워서 불 끄기, 외출 중 전등 확인 등 편리함</li>
+                </ul>
+              </div>
+
+              <div class="sw-benefit-card green sw-animate-target">
+                <div class="sw-benefit-icon">⚡</div>
+                <p class="sw-benefit-title">에너지 절감</p>
+                <ul class="sw-benefit-list">
+                  <li>대기전력 자동 차단으로 전기 소모 방지</li>
+                  <li>사용량 모니터링으로 절전 습관 형성</li>
+                  <li>부재 시 자동 소등으로 전기 요금 절약</li>
+                </ul>
+              </div>
+
+              <div class="sw-benefit-card warm sw-animate-target">
+                <div class="sw-benefit-icon">🛡️</div>
+                <p class="sw-benefit-title">안전 강화</p>
+                <ul class="sw-benefit-list">
+                  <li>외출 후 가스·전열기 원격 확인 및 차단</li>
+                  <li>화재·연기 감지 시 즉시 스마트폰 알림</li>
+                  <li>비정상 전력 소비 패턴 자동 경고</li>
+                </ul>
+              </div>
+
+              <div class="sw-benefit-card purple sw-animate-target">
+                <div class="sw-benefit-icon">🔗</div>
+                <p class="sw-benefit-title">스마트홈 연동</p>
+                <ul class="sw-benefit-list">
+                  <li>월패드 및 주요 홈네트워크 시스템 연동</li>
+                  <li>홈 오토메이션 시나리오 자동화 구현</li>
+                  <li>GS 자이, 롯데캐슬 등 프리미엄 호환성</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="sw-section">
+            <div class="sw-section-header">
+              <span class="sw-section-num">03</span>
+              <h2 class="sw-section-title">제일일렉트릭<br>IoT 배선기구의 차별점</h2>
+            </div>
+            <p class="sw-section-desc">단품 스마트 스위치와는 다릅니다. 집 전체 전기·에너지·안전을 하나의 생태계로 연결하는 완성형 솔루션입니다.</p>
+
+            <div class="sw-jeil-banner sw-animate-target">
+              <div class="sw-jeil-banner-inner">
+                <div class="sw-jeil-badge">★ 스마트 배전기구 분야 국내 기술력 1위</div>
+                <h3 class="sw-jeil-title">집 한 채를 하나의<br>스마트 시스템으로</h3>
+                <p class="sw-jeil-desc">65년 이상의 업력과 코스닥 상장사의 신뢰를 바탕으로, IoT 배선기구부터 스마트 분전반, AI 케어 센서까지 하나의 브랜드 안에서 완결됩니다.</p>
+              </div>
+            </div>
+
+            <div class="sw-stats-bar sw-animate-target">
+              <div class="sw-stat-item">
+                <p class="sw-stat-num">65<span style="font-size:18px">년+</span></p>
+                <p class="sw-stat-label">업력 / 기술 신뢰성</p>
+              </div>
+              <div class="sw-stat-item">
+                <p class="sw-stat-num">1<span style="font-size:18px">위</span></p>
+                <p class="sw-stat-label">국내 스마트 배전기구</p>
+              </div>
+              <div class="sw-stat-item">
+                <p class="sw-stat-num">6+</p>
+                <p class="sw-stat-label">IoT 제품 카테고리</p>
+              </div>
+              <div class="sw-stat-item">
+                <p class="sw-stat-num">77<span style="font-size:18px">GHz</span></p>
+                <p class="sw-stat-label">AI 낙상 감지 센서 탑재</p>
+              </div>
+            </div>
+
+            <div class="sw-jeil-grid">
+              <div class="sw-jeil-card featured sw-animate-target">
+                <div class="sw-jeil-icon">🏗️</div>
+                <span class="sw-jeil-tag">핵심 강점</span>
+                <p class="sw-jeil-card-title">완성형 홈 IoT 생태계</p>
+                <p class="sw-jeil-card-desc">침실에너지미터, 풀터치스위치, 각방 통합스위치, 생활정보기 등 한 브랜드 안에서 완결되는 통합 솔루션을 제공합니다.</p>
+              </div>
+
+              <div class="sw-jeil-card sw-animate-target">
+                <div class="sw-jeil-icon" style="background:#E3F5EE;">⚡</div>
+                <p class="sw-jeil-card-title">스마트 분전반 연동 전력 관리</p>
+                <p class="sw-jeil-card-desc">세대 내 전력 사용량 모니터링, 이상 감지 및 차단까지 분전반과 연동되는 체계적인 에너지 관리 시스템을 구현합니다.</p>
+              </div>
+
+              <div class="sw-jeil-card sw-animate-target">
+                <div class="sw-jeil-icon" style="background:#FAE9E2;">🤖</div>
+                <p class="sw-jeil-card-title">AI 기반 스마트케어 확장</p>
+                <p class="sw-jeil-card-desc">호흡·심박 센서, 자세·낙상 감지 센서 연동으로 어르신·1인 가구 안전 케어까지 확장이 가능합니다.</p>
+              </div>
+
+              <div class="sw-jeil-card sw-animate-target">
+                <div class="sw-jeil-icon" style="background:#EDEBFA;">🧠</div>
+                <p class="sw-jeil-card-title">생활 패턴 기반 AI 서비스</p>
+                <p class="sw-jeil-card-desc">단순 원격 제어를 넘어 생활 패턴을 분석하는 AI 홈서비스를 제공합니다. 사용할수록 점점 더 맞춤화되는 주거 환경을 경험할 수 있습니다.</p>
+              </div>
+
+              <div class="sw-jeil-card sw-animate-target">
+                <div class="sw-jeil-icon" style="background:#F0FAE5;">🎨</div>
+                <p class="sw-jeil-card-title">프리미엄 인테리어 디자인</p>
+                <p class="sw-jeil-card-desc">다온, 디아트 등 트렌디한 시리즈 라인업으로 기능성과 인테리어를 동시에 만족시킵니다.</p>
+              </div>
+
+              <div class="sw-jeil-card sw-animate-target">
+                <div class="sw-jeil-icon" style="background:#E8EEFA;">🏆</div>
+                <p class="sw-jeil-card-title">검증된 기술력과 신뢰성</p>
+                <p class="sw-jeil-card-desc">65년 이상의 업력을 가진 코스닥 상장사로, 국내외 인증을 보유하고 있습니다. 스마트 배전기구 분야 업계 1위로 안정적인 품질과 A/S를 보장합니다.</p>
+              </div>
+            </div>
+
+            <div class="iot-cta-area" style="margin-top: 50px;">
+                <h3>당신의 공간을 스마트하게 업그레이드하세요.</h3>
+                <p>신축 납품부터 노후 주택 리모델링까지, 이안블루 전문가의 맞춤 상담을 도와드립니다.</p>
+                <div class="cta-btn-group">
+                    <a href="javascript:void(0);" class="cta-btn primary btn-open-inquiry" data-target="inquiry-form-wiring">제품 견적 문의하기</a>
+                </div>
+            </div>
+
+            <div id="inquiry-form-wiring" class="inquiry-form-wrap" style="max-width: 900px; margin-left: auto; margin-right: auto;">
+                <h3>IOT 스마트 배선기구 견적 문의</h3>
+                <form action="https://formsubmit.co/eanblue365@naver.com" method="POST">
+                    <input type="hidden" name="_subject" value="[이안블루 홈페이지] IOT 스마트 배선기구 견적 문의가 도착했습니다!">
+                    <input type="hidden" name="_template" value="table">
+                    <div class="inquiry-section-title">1. 기본정보</div>
+                    <div class="inquiry-grid">
+                        <div class="inquiry-group"><label>회사명</label><input type="text" name="회사명" placeholder="회사명을 입력해주세요" required></div>
+                        <div class="inquiry-group"><label>주소</label><input type="text" name="주소" placeholder="주소를 입력해주세요"></div>
+                        <div class="inquiry-group"><label>담당자</label><input type="text" name="담당자" placeholder="담당자 성함을 입력해주세요" required></div>
+                        <div class="inquiry-group"><label>전화번호</label><input type="tel" name="전화번호" placeholder="연락처를 입력해주세요" required></div>
+                        <div class="inquiry-group full-width"><label>이메일</label><input type="email" name="이메일" placeholder="이메일 주소를 입력해주세요" required></div>
+                    </div>
+                    <div class="inquiry-section-title">2. 문의내용</div>
+                    <div class="inquiry-group full-width">
+                        <textarea name="문의내용" placeholder="문의하실 내용을 자유롭게 입력해주세요." required></textarea>
+                    </div>
+                    <button type="submit" class="inquiry-submit-btn">문의하기 (메일 전송)</button>
+                    <div class="inquiry-consent">(양식을 제출하면 개인정보 제공 및 제3자 정보 제공 활용에 동의하는 것으로 간주합니다.)</div>
+                </form>
+            </div>
+            </section>
+        </main>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">개인정보 취급방침</a>
+            <a href="#">이용약관</a>
+            <a href="#">이메일무단수집거부</a>
+            <a href="#">사이트맵</a>
+        </div>
+        <div class="footer-info">
+            <p><strong>(주)이안블루</strong></p>
+            <p>서울특별시 강북구 솔샘로 316 | Tel 02-987-6114 | Fax 02-981-7114</p>
+            <p>COPYRIGHT © 2026 EANBLUE. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+	<script src="script.js"></script>
+    <script>
+       
+		// --- 💡 스마트 배선기구 섹션 (제일일렉트릭) 스크롤 애니메이션 ---
+        const swObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    swObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.sw-animate-target').forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(16px)';
+            el.style.transition = `opacity 0.45s ease ${(i % 6) * 0.07}s, transform 0.45s ease ${(i % 6) * 0.07}s`;
+            swObserver.observe(el);
+        });
+    </script>
+	<script src="header.js"></script>
+</body>
+</html>

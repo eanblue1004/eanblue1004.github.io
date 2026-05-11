@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <title>이안블루 | 공식 홈페이지</title>
+	<link rel="stylesheet" href="style.css">
+    <style>
+		/* ==============================================
+           💡 [신규] 스마트 아크차단기 전용 독립 스타일
+           ============================================== */
+        #arc-breaker-section {
+            --bg: #f8fafc; --bg-alt: #ffffff; --card: #ffffff; --line: #e2e8f0;
+            --text: #0f172a; --sub: #475569; --primary: #1d4ed8; --secondary: #3b82f6;
+            --accent: #10b981; --orange: #dd6b20; --red: #e53e3e; --yellow: #ecc94b;
+            --shadow: 0 12px 40px rgba(0,0,0,0.06); --shadow-sm: 0 4px 12px rgba(0,0,0,0.03);
+            --radius: 20px; --max: 1200px;
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.05), transparent 30%), radial-gradient(circle at 85% 12%, rgba(16, 185, 129, 0.04), transparent 30%);
+            padding: 0 !important; /* 기존 content-section 여백 무시하고 풀스크린 사용 */
+            color: var(--text);
+        }
+        
+        #arc-breaker-section p { line-height: 1.8; word-break: keep-all; color: var(--sub); }
+        .arc2-wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+        .arc2-section { padding: 120px 0; }
+        .arc2-section-alt { background: linear-gradient(180deg, #ffffff 0%, #f4f7f9 100%); }
+        .arc2-section + .arc2-section { border-top: 1px solid rgba(0,0,0,0.05); }
+
+        .arc2-head { margin-bottom: 70px; text-align: center; }
+        .arc2-head.left { text-align: left; }
+        .arc2-kicker { display: inline-block; margin-bottom: 12px; font-size: 14px; font-weight: 800; letter-spacing: .08em; color: var(--primary); text-transform: uppercase; background: rgba(29, 78, 216, 0.08); padding: 6px 16px; border-radius: 30px; }
+        .arc2-kicker.orange { color: var(--orange); background: rgba(221, 107, 32, 0.1); }
+        .arc2-head h2 { margin: 0 auto 16px; font-size: clamp(28px, 4vw, 42px); letter-spacing: -0.02em; line-height: 1.3; font-weight: 800; color: var(--text); }
+        .arc2-head p { margin: 0 auto; color: var(--sub); max-width: 800px; font-size: 18px; }
+
+        .arc2-hero { padding: 80px 0 60px; position: relative; overflow: hidden; text-align: center; }
+        .arc2-hero h1 { margin: 20px auto 24px; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.3; font-weight: 800; letter-spacing: -0.03em; color: var(--text); }
+        .arc2-hero h1 .arc2-highlight { color: var(--orange); }
+        .arc2-hero p { margin: 0 auto 20px; color: var(--sub); font-size: clamp(17px, 1.8vw, 20px); max-width: 680px; line-height: 1.7; }
+
+        .arc2-news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+        .arc2-news-card { background: var(--card); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--line); transition: transform 0.3s; }
+        .arc2-news-card:hover { transform: translateY(-5px); border-color: var(--secondary); }
+        .arc2-news-img { height: 200px; background-size: cover; background-position: center; position: relative; }
+        .arc2-news-badge { position: absolute; top: 16px; left: 16px; background: rgba(0,0,0,0.8); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; }
+        .arc2-news-content { padding: 24px; }
+        .arc2-news-content h4 { margin: 0 0 12px; font-size: 20px; font-weight: 700; color: var(--text); }
+
+        .arc2-fire-banner { display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 60px; background: #0f172a; background-image: radial-gradient(circle at 100% 0%, #1e293b 0%, transparent 50%), radial-gradient(circle at 0% 100%, #1d4ed8 0%, transparent 50%); padding: 50px 40px; border-radius: 24px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2); }
+        .arc2-fire-stat { flex: 1; text-align: center; position: relative; }
+        .arc2-fire-stat:first-child::after { content: ''; position: absolute; right: -20px; top: 10%; height: 80%; width: 1px; background: rgba(255,255,255,0.1); }
+        .arc2-fire-stat strong { display: block; font-size: clamp(40px, 5vw, 56px); font-weight: 900; color: #ffffff; margin-bottom: 12px; line-height: 1.1; letter-spacing: -0.02em; }
+        .arc2-fire-stat.danger strong { color: #ff6b6b; text-shadow: 0 0 24px rgba(255, 107, 107, 0.5); }
+        .arc2-fire-stat span { font-size: 18px; color: #cbd5e1; font-weight: 600; }
+
+        .arc2-info-box { background: rgba(29, 78, 216, 0.04); padding: 50px; border-radius: 20px; margin-bottom: 60px; border-left: 6px solid var(--primary); }
+        .arc2-info-box h4 { font-size: 24px; margin: 0 0 20px; color: var(--primary); font-weight: 800; }
+
+        .arc2-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+        .arc2-stat { padding: 40px 20px; border-radius: 16px; background: linear-gradient(135deg, var(--primary), #1e3a8a); text-align: center; box-shadow: 0 12px 24px rgba(29, 78, 216, 0.2); }
+        .arc2-stat strong { display: block; font-size: clamp(28px, 3vw, 38px); font-weight: 800; margin-bottom: 12px; color: #ffffff; }
+        .arc2-stat.danger { background: linear-gradient(135deg, var(--red), #c53030); box-shadow: 0 12px 24px rgba(229, 62, 62, 0.2); }
+        .arc2-stat span { color: rgba(255,255,255,0.9); font-size: 16px; font-weight: 600; }
+
+        .arc2-compare-wrap { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); margin-top: 60px; }
+        .arc2-compare { width: 100%; border-collapse: collapse; text-align: left; }
+        .arc2-compare th, .arc2-compare td { padding: 24px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+        .arc2-compare th { background: var(--bg); color: var(--text); font-size: 17px; font-weight: 700; width: 20%; }
+        .arc2-compare td { color: var(--sub); font-size: 16px; width: 40%; }
+        .arc2-yes { color: var(--primary); font-weight: 800; background: rgba(29,78,216,0.1); padding: 6px 12px; border-radius: 8px; display: inline-block; }
+        .arc2-no { color: var(--sub); font-weight: 500; }
+
+        .arc2-flow-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .arc2-flow-steps { display: grid; gap: 20px; }
+        .arc2-flow-step { display: flex; gap: 20px; align-items: flex-start; padding: 28px; border-radius: 16px; background: #ffffff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+        .arc2-flow-num { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--primary); color: #ffffff; font-weight: 800; font-size: 20px; flex: 0 0 44px; }
+        .arc2-flow-step h4 { margin: 0 0 8px; font-size: 20px; color: var(--text); font-weight: bold; }
+        .arc2-viz { min-height: 460px; display: grid; place-items: center; padding: 24px; background: #ffffff; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+        .arc2-viz svg { width: 100%; height: auto; max-width: 560px; }
+
+        .arc2-feature-row { display: flex; align-items: center; gap: 60px; margin-bottom: 120px; }
+        .arc2-feature-row.reverse { flex-direction: row-reverse; }
+        .arc2-feature-img { flex: 1; height: 400px; border-radius: 20px; background-size: cover; background-position: center; box-shadow: var(--shadow); border: 1px solid var(--line); }
+        .arc2-feature-img.contain { background-size: contain; background-repeat: no-repeat; background-color: #fff; }
+        .arc2-feature-text { flex: 1.2; }
+        .arc2-feature-tag { display: inline-block; background: rgba(29, 78, 216, 0.1); color: var(--primary); padding: 8px 18px; border-radius: 6px; font-size: 15px; font-weight: 700; margin: 0 12px 24px 0; }
+        .arc2-feature-tag.orange { background: rgba(221, 107, 32, 0.1); color: var(--orange); }
+        .arc2-feature-text h3 { font-size: 34px; font-weight: 800; margin: 0 0 24px; line-height: 1.4; color: var(--text); }
+
+        .arc2-indicator-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 100px; }
+        .arc2-indicator { padding: 40px 24px; border-radius: 20px; background: #ffffff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); text-align: center; }
+        .arc2-dot { width: 28px; height: 28px; border-radius: 50%; margin: 0 auto 24px; box-shadow: 0 0 0 8px rgba(0,0,0,0.05); }
+        .arc2-indicator h4 { margin: 0 0 16px; font-size: 20px; color: var(--text); font-weight: 700; }
+
+        .arc2-spec-box { background: #ffffff; border: 1px solid var(--line); border-radius: 16px; padding: 50px; box-shadow: var(--shadow-sm); width: 100%; margin-bottom: 100px; box-sizing: border-box;}
+        .arc2-spec-box h4 { font-size: 24px; color: var(--text); margin: 0 0 24px 0; font-weight: 800; border-left: 5px solid var(--primary); padding-left: 16px; }
+        .arc2-spec-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+        .arc2-spec-table th, .arc2-spec-table td { padding: 18px; border-bottom: 1px solid var(--line); text-align: left; }
+        .arc2-spec-table th { background-color: var(--bg); color: var(--text); font-weight: 700; width: 20%; }
+        .arc2-spec-table td { color: var(--sub); width: 30%; }
+
+        .arc2-cta-box { position: relative; overflow: hidden; border-radius: 24px; padding: 50px 40px; text-align: center; background: linear-gradient(135deg, var(--primary), #1e3a8a); color: #ffffff; box-shadow: 0 20px 40px rgba(29, 78, 216, 0.3); margin-bottom: 60px; }
+        .arc2-cta-box h2 { margin: 0 auto 16px; font-size: clamp(26px, 3.5vw, 32px); font-weight: 800; line-height: 1.3; color: white;}
+        .arc2-cta-box p { margin: 0 auto 24px; color: rgba(255,255,255,0.85)!important; max-width: 700px; font-size: 17px; line-height: 1.6; }
+        
+        .arc2-btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px 28px; border-radius: 12px; font-weight: 700; font-size: 16px; transition: all .2s ease; cursor: pointer; border: none; font-family: inherit; text-decoration: none;}
+        .arc2-btn-orange { background: var(--orange); color: #fff; box-shadow: 0 8px 20px rgba(221, 107, 32, 0.4); }
+        .arc2-btn-orange:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); color: #fff; }
+
+        @media (max-width: 1024px){
+            .arc2-flow-wrap, .arc2-feature-row, .arc2-feature-row.reverse { grid-template-columns: 1fr; flex-direction: column; gap: 60px; margin-bottom: 80px; }
+            .arc2-feature-img { min-height: 400px; width: 100%; }
+            .arc2-stats, .arc2-indicator-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px){
+            .arc2-fire-banner { flex-direction: column; gap: 40px; padding: 40px 20px; }
+            .arc2-fire-stat:first-child::after { display: none; }
+            .arc2-stats, .arc2-indicator-grid { grid-template-columns: 1fr; }
+            .arc2-compare th, .arc2-compare td, .arc2-spec-table th, .arc2-spec-table td { display: block; width: 100%; box-sizing: border-box; }
+            .arc2-compare th, .arc2-spec-table th { background: var(--bg); padding-bottom: 12px; border-bottom: none; }
+            .arc2-compare td, .arc2-spec-table td { padding-top: 8px; margin-bottom: 20px; }
+            .arc2-section { padding: 80px 0; }
+            .arc2-cta-box { padding: 30px 24px; }
+            .arc2-feature-row { margin-bottom: 60px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section id="arc-breaker-section" class="content-section active" style="display: block; min-height: calc(100vh - 150px);">
+      
+      <!-- 히어로 섹션 -->
+      <div class="arc2-hero">
+        <div class="arc2-wrap" style="max-width: 800px;">
+          <div class="arc2-hero-copy">
+            <span class="arc2-kicker">FIRE PREVENTION SOLUTION</span>
+            <h1>전기화재의 보이지 않는 원인,<br><span class="arc2-highlight">아크(ARC 전기불꽃)</span>를 사전에 차단합니다.</h1>
+            <p>화재는 '큰 누전'에서만 시작되지 않습니다. 전선 노후, 콘센트 먼지 등 평범한 환경에서 발생하는 미세 불꽃이 화재 원인의 80%를 차지합니다.<br>이안블루가 검증된 제일일렉트릭 아크차단기 솔루션을 제안합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 문제 제기 (뉴스/화재 사례) -->
+      <div class="arc2-section arc2-section-alt">
+        <div class="arc2-wrap">
+          <div class="arc2-head">
+            <span class="arc2-kicker">Why It Happens</span>
+            <h2>원인 모를 대형 화재, 왜 차단기는 작동하지 않았을까요?</h2>
+            <p>기존의 누전차단기가 감지하지 못하는 사각지대, 바로 '전기 불꽃(아크)'에 그 원인이 있습니다.</p>
+          </div>
+
+          <div class="arc2-news-grid">
+            <div class="arc2-news-card">
+              <div class="arc2-news-img" style="background-image: url('Gemini_Generated_Image_8s9qt38s9qt38s9q.png');">
+                <span class="arc2-news-badge" style="background:var(--red);">안전점검</span>
+              </div>
+              <div class="arc2-news-content">
+                <h4>"노후 분전함 내부의 치명적 스파크"</h4>
+                <p>전선 피복이 손상되거나 연결 부위가 헐거워지면, 눈에 보이지 않는 곳에서 발생한 초고온 스파크가 순식간에 먼지에 옮겨붙어 발화점이 됩니다.</p>
+              </div>
+            </div>
+            <div class="arc2-news-card">
+    <!-- 🔥 애니메이션 파형 시각화 영역 추가 -->
+    <div class="arc2-news-img" style="background: #0f172a; position: relative; overflow: hidden; height: 200px;">
+        <!-- 배경 그리드 (모눈종이 효과) -->
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <!-- 파형 설명 라벨 -->
+        <div style="position: absolute; top: 12px; left: 16px; color: #10b981; font-size: 13px; font-weight: bold; z-index: 2; text-shadow: 0 0 5px rgba(16, 185, 129, 0.5);">정상 파형</div>
+        <div style="position: absolute; top: 105px; left: 16px; color: #ef4444; font-size: 13px; font-weight: bold; z-index: 2; text-shadow: 0 0 5px rgba(239, 68, 68, 0.5);">아크 방전 파형 (스파크)</div>
+        
+        <!-- 🟢 정상 파형 SVG (부드러운 곡선) -->
+        <svg width="1200" height="100" style="position: absolute; top: 0; left: 0; animation: waveMove 2s linear infinite; filter: drop-shadow(0 0 3px #10b981);">
+            <path d="M0,50 Q25,10 50,50 T100,50 T150,50 T200,50 T250,50 T300,50 T350,50 T400,50 T450,50 T500,50 T550,50 T600,50 T650,50 T700,50 T750,50 T800,50 T850,50 T900,50 T950,50 T1000,50 T1050,50 T1100,50 T1150,50 T1200,50" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        
+        <!-- 🔴 아크 방전 파형 SVG (불규칙한 스파크) -->
+        <svg width="1200" height="100" style="position: absolute; top: 90px; left: 0; animation: waveMove 2s linear infinite; filter: drop-shadow(0 0 3px #ef4444);">
+            <path d="M0,50 Q25,10 50,50 L55,10 L60,90 L65,20 L75,80 L80,10 L90,90 L100,50 Q125,10 150,50 L155,10 L160,90 L165,20 L175,80 L180,10 L190,90 L200,50 Q225,10 250,50 L255,10 L260,90 L265,20 L275,80 L280,10 L290,90 L300,50 Q325,10 350,50 L355,10 L360,90 L365,20 L375,80 L380,10 L390,90 L400,50 Q425,10 450,50 L455,10 L460,90 L465,20 L475,80 L480,10 L490,90 L500,50 Q525,10 550,50 L555,10 L560,90 L565,20 L575,80 L580,10 L590,90 L600,50 Q625,10 650,50 L655,10 L660,90 L665,20 L675,80 L680,10 L690,90 L700,50 Q725,10 750,50 L755,10 L760,90 L765,20 L775,80 L780,10 L790,90 L800,50 Q825,10 850,50 L855,10 L860,90 L865,20 L875,80 L880,10 L890,90 L900,50 Q925,10 950,50 L955,10 L960,90 L965,20 L975,80 L980,10 L990,90 L1000,50 Q1025,10 1050,50 L1055,10 L1060,90 L1065,20 L1075,80 L1080,10 L1090,90 L1100,50 Q1125,10 1150,50 L1155,10 L1160,90 L1165,20 L1175,80 L1180,10 L1190,90 L1200,50" fill="none" stroke="#ef4444" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <!-- // 애니메이션 파형 시각화 영역 끝 -->
+
+    <div class="arc2-news-content">
+        <span class="arc2-feature-tag" style="margin-bottom: 16px; background: rgba(0,0,0,0.05); color: var(--sub); padding: 6px 12px; font-size: 13px;">집중취재</span>
+        <h4>"기존 누전차단기의 한계"</h4>
+        <p>우리가 흔히 쓰는 누전차단기(ELB)는 합선이나 누전만 막아줄 뿐, 정작 전기화재의 80%를 차지하는 '아크' 파형 자체를 인식하는 능력은 없습니다.</p>
+    </div>
+</div>
+            <div class="arc2-news-card">
+              <div class="arc2-news-img" style="background-image: url('Gemini_Generated_Image_iw2x42iw2x42iw2x.png');">
+                <span class="arc2-news-badge">이슈</span>
+              </div>
+              <div class="arc2-news-content">
+                <h4>"물류센터·상가건물의 뼈아픈 피해"</h4>
+                <p>무거운 짐에 짓눌린 전선이나 노후 설비에서 발생한 미세 스파크를 초기에 차단하지 못해 천문학적인 재산 및 인명 피해로 이어집니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="arc2-fire-banner">
+            <div class="arc2-fire-stat">
+              <strong>9,952건</strong>
+              <span>국내 연평균 전기화재 발생 건수</span>
+            </div>
+            <div class="arc2-fire-stat danger">
+              <strong>80% 이상</strong>
+              <span>전체 전기화재 중 '아크(전기불꽃)'가 원인</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 아크란? & 비교 분석 -->
+      <div class="arc2-section" style="padding-top: 60px;">
+        <div class="arc2-wrap">
+          <div class="arc2-head left" style="margin-bottom: 30px;">
+            <span class="arc2-kicker">What is Arc</span>
+            <h2>작은 불꽃이 만드는 가장 큰 위험, 아크(ARC)</h2>
+          </div>
+
+          <div class="arc2-info-box">
+            <h4>💡 아크(ARC) 현상이란 무엇이며, 왜 전용 차단기가 필요한가요?</h4>
+            <p><strong>아크(ARC)는 전선이 끊어지거나 콘센트 접촉이 불량할 때, 전류가 공기를 뚫고 흐르면서 발생하는 강력한 전기 불꽃입니다.</strong></p>
+            <p>이 현상이 발생하면 전류량이 크지 않더라도 순간적으로 온도가 수천 도까지 상승하여 주변 절연체나 먼지를 순식간에 발화시킵니다. 일반 누전차단기로는 이러한 미세한 불꽃 파형을 절대 감지할 수 없습니다.</p>
+          </div>
+
+          <div class="arc2-stats">
+            <div class="arc2-stat danger">
+              <strong>약 80%</strong>
+              <span>전체 전기화재 중 발화 비율</span>
+            </div>
+            <div class="arc2-stat danger">
+              <strong>3,000℃+</strong>
+              <span>아크 발생 시 초고온 위험성</span>
+            </div>
+            <div class="arc2-stat">
+              <strong>0.03초</strong>
+              <span>누전 발생 시 초고속 차단</span>
+            </div>
+            <div class="arc2-stat">
+              <strong>1초 이내</strong>
+              <span>스마트 알고리즘 아크 감지</span>
+            </div>
+          </div>
+
+          <div class="arc2-compare-wrap">
+            <table class="arc2-compare">
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th style="background:#f1f5f9;">일반 누전차단기 (ELB)</th>
+                  <th style="background:#eff6ff;">제일일렉트릭 아크차단기 (AFCI)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>주요 감지 대상</strong></td>
+                  <td>누전, 과전류</td>
+                  <td>누전, 과전류 <strong>+ 아크(미세 불꽃)</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>아크 위험 대응</strong></td>
+                  <td><span class="arc2-no">불가능 (사각지대 발생)</span></td>
+                  <td><span class="arc2-yes">전용 마이크로프로세서 분석 및 차단</span></td>
+                </tr>
+                <tr>
+                  <td><strong>스마트 알림 기능</strong></td>
+                  <td><span class="arc2-no">지원 안함</span></td>
+                  <td><span class="arc2-yes">실시간 원인 파악 (LED 표시)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 동작 원리 -->
+      <div class="arc2-section arc2-section-alt" style="padding-top: 60px;">
+        <div class="arc2-wrap">
+          <div class="arc2-head" style="margin-bottom: 30px;">
+            <span class="arc2-kicker">How it Works</span>
+            <h2>위험 파형을 먼저 읽고, 화재 전 차단합니다</h2>
+          </div>
+
+          <div class="arc2-flow-wrap">
+            <div class="arc2-flow-steps">
+              <div class="arc2-flow-step">
+                <div class="arc2-flow-num">1</div>
+                <div>
+                  <h4>배선 내부 미세 아크 발생</h4>
+                  <p>노후 배선이나 콘센트 먼지 등으로 인해 눈에 보이지 않는 미세한 불꽃 방전이 일어납니다.</p>
+                </div>
+              </div>
+              <div class="arc2-flow-step">
+                <div class="arc2-flow-num">2</div>
+                <div>
+                  <h4>순간 전력 변화 및 파형 분석</h4>
+                  <p>내장된 스마트 마이크로프로세서가 정상적인 생활 가전의 전류와 화재 징후(아크) 패턴을 지능적으로 구분합니다.</p>
+                </div>
+              </div>
+              <div class="arc2-flow-step">
+                <div class="arc2-flow-num">3</div>
+                <div>
+                  <h4>위험 판단 시 1초 내 즉시 차단</h4>
+                  <p>위험 아크로 판단될 경우 즉시 릴레이를 작동시켜 전력을 차단, 화재로의 확산을 원천 차단합니다.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="arc2-viz">
+              <svg viewBox="0 0 700 450" xmlns="http://www.w3.org/2000/svg">
+                <defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.08"/></filter></defs>
+                <rect x="40" y="40" rx="20" width="220" height="370" fill="#ffffff" stroke="#fecaca" stroke-width="3" filter="url(#shadow)"/>
+                <rect x="40" y="40" rx="20" width="220" height="60" fill="#fef2f2"/>
+                <text x="150" y="78" text-anchor="middle" fill="#dc2626" font-size="22" font-weight="800">아크 발생 구간</text>
+                <line x1="80" y1="180" x2="220" y2="180" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round"/>
+                <line x1="80" y1="280" x2="220" y2="280" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round"/>
+                <path d="M140 160 L120 220 L155 220 L135 290 L185 205 L150 205 L175 160 Z" fill="#ef4444"/>
+                <circle cx="150" cy="230" r="60" fill="rgba(239, 68, 68, 0.1)"/>
+                <rect x="280" y="130" rx="20" width="140" height="40" fill="#dd6b20"/><text x="350" y="156" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="800">알고리즘 분석</text>
+                <rect x="280" y="250" rx="20" width="140" height="40" fill="#1d4ed8"/><text x="350" y="276" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="800">차단 신호 송출</text>
+                <rect x="440" y="40" rx="20" width="220" height="370" fill="#ffffff" stroke="#bfdbfe" stroke-width="3" filter="url(#shadow)"/>
+                <rect x="440" y="40" rx="20" width="220" height="60" fill="#eff6ff"/>
+                <text x="550" y="78" text-anchor="middle" fill="#1d4ed8" font-size="22" font-weight="800">아크차단기 동작</text>
+                <circle cx="550" cy="340" r="14" fill="#10b981"/>
+                <text x="550" y="375" text-anchor="middle" fill="#10b981" font-size="18" font-weight="800">전원 차단 완료 (안전)</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 상세 기능 및 스펙 -->
+      <div class="arc2-section" style="padding-top: 60px;">
+        <div class="arc2-wrap">
+          <div class="arc2-head" style="margin-bottom: 30px;">
+            <span class="arc2-kicker">Why Choose Us</span>
+            <h2>🏆 왜 '제일일렉트릭' 아크차단기인가?</h2>
+          </div>
+
+          <div class="arc2-feature-row">
+            <div class="arc2-feature-img" style="background-image: url('https://image.news1.kr/system/photos/2025/12/5/7636900/no_water.jpg/dims/crop/628x439'); border-right: 1px solid #eee;"></div>
+            <div class="arc2-feature-text">
+              <span class="arc2-feature-tag">법적 의무화</span>
+              <span class="arc2-feature-tag orange">KEC 규정 개정</span>
+              <h3>화재 취약시설,<br>이제 아크차단기 설치는 필수입니다.</h3>
+              <p>잦은 대형 화재를 예방하기 위해 한국전기설비규정(KEC)이 강화되었습니다. 이제 전통시장, 다중이용시설, 숙박시설, 창고 및 물류센터 등 화재 취약 대상물에는 아크차단기를 <strong>의무적으로 설치</strong>해야 합니다.</p>
+            </div>
+          </div>
+
+          <div class="arc2-feature-row reverse">
+            <div class="arc2-feature-img contain" style="background-image: url('https://cdn.dailysecu.com/news/photo/202510/201371_201604_3022.png');"></div>
+            <div class="arc2-feature-text">
+              <span class="arc2-feature-tag">오작동 방지</span>
+              <span class="arc2-feature-tag">글로벌 수출</span>
+              <h3>미국이 검증한 20년의<br>정밀 알고리즘 기술력</h3>
+              <p>아크차단기 기술의 핵심은 청소기나 모터 등에서 발생하는 '정상적인 스파크'와 화재를 유발하는 '위험한 아크'를 정확히 구별하여 <strong>오작동(Nuisance Tripping)을 방지</strong>하는 것입니다. 제일일렉트릭은 글로벌 전력기업 이튼(Eaton)사에 20년 이상 핵심 회로를 수출하며 세계 최고 수준의 판단 기술력을 인정받았습니다.</p>
+            </div>
+          </div>
+
+          <div class="arc2-head" style="margin-top: 100px; margin-bottom: 30px;">
+            <span class="arc2-kicker">Smart Diagnosis</span>
+            <h2>직관적인 상태 표시로 관리 편의성 극대화</h2>
+            <p>전기가 차단되어도 제품 전면의 LED 색상만으로 차단 원인을 즉시 파악할 수 있습니다.</p>
+          </div>
+          
+          <div class="arc2-indicator-grid">
+            <div class="arc2-indicator">
+              <div class="arc2-dot" style="background:var(--red);"></div>
+              <h4>빨간색 (아크)</h4>
+              <p>화재로 이어질 수 있는<br>아크 방전 감지</p>
+            </div>
+            <div class="arc2-indicator">
+              <div class="arc2-dot" style="background:var(--accent);"></div>
+              <h4>초록색 (정상)</h4>
+              <p>전원 라인이 안전하게<br>정상 작동 중</p>
+            </div>
+            <div class="arc2-indicator">
+              <div class="arc2-dot" style="background:var(--yellow);"></div>
+              <h4>노란색 (누전)</h4>
+              <p>습기나 절연 파괴로 인한<br>누전 감지</p>
+            </div>
+            <div class="arc2-indicator">
+              <div class="arc2-dot" style="background:var(--orange);"></div>
+              <h4>주황색 (과부하)</h4>
+              <p>허용 전력을 초과한<br>과부하 상태</p>
+            </div>
+          </div>
+
+          <div class="arc2-feature-row" style="margin-bottom: 40px; margin-top: 80px;">
+            <div class="arc2-feature-img contain" style="background-image: url('https://www.cheilelec.com/DATAS/es_product/%C1%D6%C5%C3%BF%EB_%BE%C6%C5%A9_%B0%E2%BF%EB_%B4%A9%C0%FC_%C2%F7%B4%DC%B1%E2.jpg'); height: 320px;"></div>
+            <div class="arc2-feature-text">
+              <span class="arc2-feature-tag">1:1 간편 교체</span>
+              <span class="arc2-feature-tag">스마트 IoT (옵션)</span>
+              <h3>복잡한 공사 없이<br>기존 분전반에 그대로 교체</h3>
+              <p>기존에 설치된 일반 누전차단기(ELB)와 크기 및 호환성이 동일하게 설계되어, 별도의 타공이나 배선 공사 없이 간편하게 1:1 교체가 가능합니다. 설치 즉시 화재 예방 시스템이 가동됩니다.</p>
+            </div>
+          </div>
+
+          <div class="arc2-spec-box">
+            <h4>[제품 상세 사양] 아크 겸용 누전 차단기 (AG-32N)</h4>
+            <table class="arc2-spec-table">
+              <tbody>
+                <tr>
+                  <th>모델명</th>
+                  <td>AG-32N (32AF)</td>
+                  <th>제조사 / 제조국</th>
+                  <td>제일전기공업(주) / 대한민국</td>
+                </tr>
+                <tr>
+                  <th>제품 크기</th>
+                  <td>85(H) x 32(W) x 77(D) mm</td>
+                  <th>작동 방식</th>
+                  <td>전자식 (마이크로프로세서 탑재)</td>
+                </tr>
+                <tr>
+                  <th>정격 전압</th>
+                  <td>220V, 60Hz</td>
+                  <th>극수</th>
+                  <td>2 POLE</td>
+                </tr>
+                <tr>
+                  <td colspan="4" style="line-height: 1.6;">
+                    • <strong>전원 차단 기능:</strong> 아크, 과부하, 누전 감지 시 즉시 물리적 전원 차단<br>
+                    • <strong>옵션 연동:</strong> 5Pin 통신 포트 지원, IoT 네트워크 모듈 연동 가능
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 도입 문의 CTA (기존 글로벌 자바스크립트 연동) -->
+          <div class="arc2-cta-box">
+            <h2>대형 화재의 위험, 선제적인 차단기 교체로 예방하십시오</h2>
+            <p>현장 환경 분석부터 필요 수량 산출, 기존 분전반 호환 체크까지.<br>이안블루가 귀사의 안전을 위한 최적의 컨설팅을 제공해 드립니다.</p>
+            <a href="javascript:void(0);" class="arc2-btn arc2-btn-orange btn-open-inquiry" data-target="inquiry-form-arc">도입 상담 및 견적 신청하기</a>
+          </div>
+
+          <!-- 문의 폼 (기존 글로벌 폼 디자인 양식 적용) -->
+          <div id="inquiry-form-arc" class="inquiry-form-wrap" style="max-width: 1000px; margin: 0 auto 100px auto;">
+            <h3>스마트 아크차단기 도입 문의</h3>
+            <form action="https://formsubmit.co/eanblue365@naver.com" method="POST">
+                <input type="hidden" name="_subject" value="[이안블루 홈페이지] 스마트 아크차단기 도입 문의가 도착했습니다!">
+                <input type="hidden" name="_template" value="table">
+                <div class="inquiry-section-title">1. 기본정보</div>
+                <div class="inquiry-grid">
+                    <div class="inquiry-group"><label>회사명/건물명</label><input type="text" name="회사명" placeholder="입력해주세요" required></div>
+                    <div class="inquiry-group"><label>주소</label><input type="text" name="주소" placeholder="주소를 입력해주세요"></div>
+                    <div class="inquiry-group"><label>담당자</label><input type="text" name="담당자" placeholder="성함을 입력해주세요" required></div>
+                    <div class="inquiry-group"><label>전화번호</label><input type="tel" name="전화번호" placeholder="연락처를 입력해주세요" required></div>
+                    <div class="inquiry-group full-width"><label>이메일</label><input type="email" name="이메일" placeholder="이메일 주소를 입력해주세요" required></div>
+                </div>
+                <div class="inquiry-section-title">2. 문의내용</div>
+                <div class="inquiry-group full-width">
+                    <textarea name="문의내용" placeholder="건물 유형, 설치 수량 등 상세한 내용을 적어주세요." required></textarea>
+                </div>
+                <button type="submit" class="inquiry-submit-btn">문의하기 (메일 전송)</button>
+                <div class="inquiry-consent">(양식을 제출하면 개인정보 제공 및 제3자 정보 제공 활용에 동의하는 것으로 간주합니다.)</div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">개인정보 취급방침</a>
+            <a href="#">이용약관</a>
+            <a href="#">이메일무단수집거부</a>
+            <a href="#">사이트맵</a>
+        </div>
+        <div class="footer-info">
+            <p><strong>(주)이안블루</strong></p>
+            <p>서울특별시 강북구 솔샘로 316 | Tel 02-987-6114 | Fax 02-981-7114</p>
+            <p>COPYRIGHT © 2026 EANBLUE. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+	<script src="header.js"></script>
+</body>
+</html>
