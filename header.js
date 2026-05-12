@@ -25,7 +25,7 @@ const headerHTML=`
                     <a href="smart_wiring.html">IOT스마트배선기구</a>
                     <a href="arc_breaker.html">아크차단기</a>
                     <a href="#surge-protector-section">써지보호기</a>
-                    <a href="#fire-outlet-section">화재감지콘센트</a>
+                    <a href="fire_outlet.html">화재감지콘센트</a>
                     <a href="#standby-power-section">대기전력차단콘센트</a>
                     <a href="#apu-section">APU(비상전원자동공급장치)</a>
                 </div>
