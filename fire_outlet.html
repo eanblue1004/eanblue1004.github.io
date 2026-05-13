@@ -216,7 +216,35 @@
       box-shadow: var(--shadow);
       border: 1px solid rgba(219, 228, 238, 0.8);
     }
+	/* =========================================
+       ✨ Hero 배경 이미지 영역 스타일
+       ========================================= */
+    .hero-bg-wrap {
+      /* 배경 이미지 설정 */
+      background-image: url('hajaecon_main.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      
+      /* 기존 .hero 에 있던 여백을 이쪽으로 이동 */
+      padding: 80px 0 60px; 
+      position: relative;
+    }
 
+    /* 이미지가 너무 밝거나 진해서 글씨가 안 보일 때를 대비한 반투명 흰색 오버레이 */
+    .hero-bg-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to right,rgba(255, 255, 255, 0.85) 25%,rgba(255,255,255,0) );
+      z-index: 1;
+    }
+
+    /* 텍스트와 버튼, 이미지가 배경 오버레이보다 위로 올라오도록 z-index 설정 */
+    .hero-bg-wrap > .container {
+      position: relative;
+      z-index: 2;
+    }
     .stats {
       padding: 18px 0 0; /* 16px -> 18px */
     }
@@ -473,11 +501,11 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <section class="hero">
+    <section class="hero" style="padding: 0;"><div class="hero-bg-wrap">
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">화재예방 솔루션 · 과열 감지 콘센트</span>
-          <h1>과열 감지 콘센트<br />인화성 물질 화재예방</h1>
+          <h1>과열 감지 콘센트<br/>인화성 물질 화재예방</h1>
           <p class="lead">
             콘센트 내·외부 온도를 감지하여 과열로 인한 화재 위험 발생 시
             경보음으로 알려주는 화재예방 콘센트입니다.
@@ -499,17 +527,12 @@
           </div>
           </div>
 
-        <div class="hero-visual">
-          <div class="main-image-wrap">
-            <img src="hajaecon_main.jpg" alt="화재예방 콘센트 기능 안내" style="width: 100%; height: auto;" />
-          </div>
-        </div>
       </div>
 
       <div class="container" style="text-align: center; margin-top: 50px;">
           <a href="#features" class="btn btn-primary" style="padding: 15px 40px; font-size: 18px;">제품 기능 보기</a>
       </div>
-
+	</div>
       <div class="container stats">
         <div class="stats-grid">
           <div class="stat-card">
