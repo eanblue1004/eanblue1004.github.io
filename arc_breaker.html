@@ -64,13 +64,59 @@
         .arc2-stat.danger { background: linear-gradient(135deg, var(--red), #c53030); box-shadow: 0 12px 24px rgba(229, 62, 62, 0.2); }
         .arc2-stat span { color: rgba(255,255,255,0.9); font-size: 16px; font-weight: 600; }
 
-        .arc2-compare-wrap { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); margin-top: 60px; }
-        .arc2-compare { width: 100%; border-collapse: collapse; text-align: left; }
-        .arc2-compare th, .arc2-compare td { padding: 24px; border-bottom: 1px solid var(--line); vertical-align: middle; }
-        .arc2-compare th { background: var(--bg); color: var(--text); font-size: 17px; font-weight: 700; width: 20%; }
-        .arc2-compare td { color: var(--sub); font-size: 16px; width: 40%; }
-        .arc2-yes { color: var(--primary); font-weight: 800; background: rgba(29,78,216,0.1); padding: 6px 12px; border-radius: 8px; display: inline-block; }
-        .arc2-no { color: var(--sub); font-weight: 500; }
+        .arc2-compare-wrap { 
+			width: 100%;
+		  margin: 0 auto;
+		  background: #ffffff;
+		  border-radius: 16px; /* 표 전체 모서리를 둥글게 */
+		  box-shadow: 0 10px 25px rgba(0,0,0,0.06); /* 홈페이지 느낌이 나도록 부드러운 그림자 추가 */
+		  overflow: hidden; /* 둥근 모서리 밖으로 선이 삐져나오지 않게 방지 */ }
+		.arc2-compare {  
+			width: 100%;
+			border-collapse: collapse;
+			text-align: center; }
+        .arc2-compare th { 
+			padding: 20px 15px; /* 제목 칸을 좀 더 넉넉하고 시원하게 */
+			font-size: 1.1em;
+			border-bottom: 2px solid #e2e8f0; }
+        .arc2-compare td {
+			border-bottom: 1px solid #f1f5f9; /* 가로줄을 연하게 설정하여 깔끔함 강조 */
+			padding: 18px 15px;
+			color: #334155; }
+        .arc2-yes {
+			background-color: #dbeafe; /* 연한 파란 배경 */
+			color: #2563eb;            /* 진한 파란 글씨 */
+			font-weight: bold; 
+			padding: 6px 14px; 
+			border-radius: 20px; 
+			font-size: 0.9em;
+			display: inline-block; }
+        .arc2-no {
+			background-color: #fee2e2; /* 연한 빨간 배경 */
+			  color: #dc2626;            /* 진한 빨간 글씨 */
+			  padding: 6px 14px; 
+			  border-radius: 20px;       /* 알약처럼 둥글게 */
+			  font-size: 0.9em;
+			  display: inline-block;     /* 배경색이 글자 크기에 맞춰 예쁘게 감싸지도록 */ }
+			      /* [핵심] 아크차단기를 주인공으로 만들어주는 강조 스타일 */
+		.highlight-header {
+		  background-color: #2563eb !important; /* 신뢰감을 주는 짙은 파란색 */
+		  color: #ffffff !important;            /* 글자는 눈에 띄게 흰색 */
+		  font-weight: bold;
+		}
+		.highlight-cell {
+		  background-color: #f8fafc; /* 내용칸 배경은 눈이 편안한 색상 */
+		  border-left: 2px solid #2563eb; /* 양 옆에 굵은 파란색 선을 그어 기둥처럼 묶어줌 */
+		  border-right: 2px solid #2563eb;
+		}
+		/* 표의 마지막 줄 아크차단기 칸 아래쪽 선 깔끔하게 마무리 */
+		.arc2-compare tbody tr:last-child .highlight-cell {
+		  border-bottom: 3px solid #2563eb; 
+		}
+		.normal-header {
+		  background-color: #f1f5f9;
+		  color: #64748b;
+		}
 
         .arc2-flow-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
         .arc2-flow-steps { display: grid; gap: 20px; }
@@ -249,34 +295,40 @@
             </div>
           </div>
 
-          <div class="arc2-compare-wrap">
+          <div class="arc2-compare-wrap" style="margin-top: 40px;">
             <table class="arc2-compare">
+				<colgroup>
+					<col style="width: 20%;"> <!-- 첫 번째 '구분' 칸의 너비를 20%로 설정 -->
+					<col style="width: 40%;"> <!-- 두 번째 '누전차단기' 칸의 너비를 40%로 설정 -->
+					<col style="width: 40%;"> <!-- 세 번째 '아크차단기' 칸의 너비를 40%로 설정 -->
+				</colgroup>
               <thead>
                 <tr>
                   <th>구분</th>
-                  <th style="background:#f1f5f9;">일반 누전차단기 (ELB)</th>
-                  <th style="background:#eff6ff;">제일일렉트릭 아크차단기 (AFCI)</th>
+                  <th class="normal-header">일반 누전차단기 (ELB)</th>
+                  <th class="highlight-header">제일일렉트릭 아크차단기 (AFCI)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td><strong>주요 감지 대상</strong></td>
                   <td>누전, 과전류</td>
-                  <td>누전, 과전류 <strong>+ 아크(미세 불꽃)</strong></td>
+                  <td class="highlight-cell">누전, 과전류 <strong>+ 아크(미세 불꽃)</strong></td>
                 </tr>
                 <tr>
                   <td><strong>아크 위험 대응</strong></td>
                   <td><span class="arc2-no">불가능 (사각지대 발생)</span></td>
-                  <td><span class="arc2-yes">전용 마이크로프로세서 분석 및 차단</span></td>
+                  <td class="highlight-cell"><span class="arc2-yes">전용 마이크로프로세서 분석 및 차단</span></td>
                 </tr>
                 <tr>
                   <td><strong>스마트 알림 기능</strong></td>
                   <td><span class="arc2-no">지원 안함</span></td>
-                  <td><span class="arc2-yes">실시간 원인 파악 (LED 표시)</span></td>
+                  <td class="highlight-cell"><span class="arc2-yes">실시간 원인 파악 (LED 표시)</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
+    </div>
         </div>
       </div>
 
