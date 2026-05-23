@@ -66,13 +66,16 @@
 
         .arc2-compare-wrap { 
 			width: 100%;
-		  margin: 0 auto;
-		  background: #ffffff;
-		  border-radius: 16px; /* 표 전체 모서리를 둥글게 */
-		  box-shadow: 0 10px 25px rgba(0,0,0,0.06); /* 홈페이지 느낌이 나도록 부드러운 그림자 추가 */
-		  overflow: hidden; /* 둥근 모서리 밖으로 선이 삐져나오지 않게 방지 */ }
+			margin: 0 auto;
+			background: #ffffff;
+			border-radius: 16px;
+			box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+			overflow-x: auto; /* 가로 스크롤 추가 */
+			overflow-y: hidden;
+			-webkit-overflow-scrolling: touch; }
 		.arc2-compare {  
 			width: 100%;
+			min-width: 550px; /* 모바일 화면보다 작아지지 않게 방어 (스크롤 유도) */
 			border-collapse: collapse;
 			text-align: center; }
         .arc2-compare th { 
@@ -164,9 +167,14 @@
             .arc2-fire-banner { flex-direction: column; gap: 40px; padding: 40px 20px; }
             .arc2-fire-stat:first-child::after { display: none; }
             .arc2-stats, .arc2-indicator-grid { grid-template-columns: 1fr; }
-            .arc2-compare th, .arc2-compare td, .arc2-spec-table th, .arc2-spec-table td { display: block; width: 100%; box-sizing: border-box; }
-            .arc2-compare th, .arc2-spec-table th { background: var(--bg); padding-bottom: 12px; border-bottom: none; }
-            .arc2-compare td, .arc2-spec-table td { padding-top: 8px; margin-bottom: 20px; }
+			/* 제품 스펙 테이블(arc2-spec-table)은 기존대로 세로 정렬(Block) 유지 */
+			.arc2-spec-table th, .arc2-spec-table td { display: block; width: 100%; box-sizing: border-box; }
+			.arc2-spec-table th { background: var(--bg); padding-bottom: 12px; border-bottom: none; }
+			.arc2-spec-table td { padding-top: 8px; margin-bottom: 20px; }
+
+			/* 비교 테이블(arc2-compare)은 테이블 구조를 유지하되 모바일용 여백만 살짝 축소 */
+			.arc2-compare th { padding: 14px 10px; font-size: 1em; }
+			.arc2-compare td { padding: 14px 10px; }
             .arc2-section { padding: 80px 0; }
             .arc2-cta-box { padding: 30px 24px; }
             .arc2-feature-row { margin-bottom: 60px; }
